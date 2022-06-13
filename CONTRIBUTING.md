@@ -41,7 +41,7 @@
         def make_complex(x, y):
             return {'x': x, 'y': y}
 
-  - One Statement per line - While there are some areas where compound statements are allowed in  general it is good practice to have one statement per line
+  - One Statement per line - While there are some areas where compound statements are allowed it is good practice to only have one statement per line.
 
         -Bad
 
@@ -62,7 +62,7 @@
             if cond1 and cond2:
             # do something
 
-  - in general do your best to try and keep you code concise and clean so it is readable to everyone. For more detailed examples or if you are unsure about something please refer to the documentation linked above or reach out to one of us.
+  - Do your best to try and keep you code concise and clean so it is readable to everyone. For more detailed examples or if you are unsure about something please refer to the documentation linked above or reach out to one of us.
 
 ## Development Environment Setup
 
