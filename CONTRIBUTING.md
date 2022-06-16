@@ -102,17 +102,13 @@
 
 ### Running app
 
-This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  Since Tkinter is included with the basic Python installation, no additional libraries or frameworks are required to be downloaded via the Python package installer (pip).
+This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  If you installed Qt for Python/PySide6 using `pip install -r requirements.txt` while in your virtual environment make sure to activate your virtual environment before you run the program.
   
 ### Resources
 
-- Currently, this project uses Tkinter for its GUI.  This decision was made due to the popularity of Tkinter, the large amount of available resources, and the fact that Tkinter comes installed with a standard Python installation.  In the future, this project may apply Tkinter themes or design modules to createa  more modern design look.  There are myriad resources for using Tkinter available online
-  - [Official Tkinter Documentation](https://docs.python.org/3/library/tk.html)
-  - [TK Docs Guide](https://tkdocs.com/)
-  - [Real Python Guide to Tkinter](https://realpython.com/python-gui-tkinter/)
-  - [Tkinter 8.5 Reference](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html)
-  - [Tkinter Theme Example](https://github.com/rdbende/Sun-Valley-ttk-theme)
-  - [Tkinter Designer](https://github.com/ParthJadhav/Tkinter-Designer)
+- Currently, this project uses Qt for Python/PySide6 for its GUI.  This decision was made due to the ability of Qt for Python to create native looking desktop apps.  In the future, this project may apply QML or design modules to create a more modern design look.  There are myriad resources for using Qt for Python available online and many resources for PyQt5, PyQt6, etc. are still valid for Qt for Python/PySide6.
+  - [Official Qt for Python Documentation](https://doc.qt.io/qtforpython/)
+  - [List of PySide6 Tutorials](https://www.reddit.com/r/QtFramework/comments/ni27qi/complete_26_part_pyside_tutorial_updated_for/)
 
 ## Testing
 
