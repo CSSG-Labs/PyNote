@@ -39,7 +39,7 @@ The purpose of this project is to
 
 ### How to run
 
-- See [CONTRIBUTING page](https://github.com/CSSG-Labs/flask-todo-app/blob/main/docs/CONTRIBUTING.md)
+- See [CONTRIBUTING page](https://github.com/CSSG-Labs/PyNote/blob/main/CONTRIBUTING.md)
 
 ## Roadmap (V1)
 
