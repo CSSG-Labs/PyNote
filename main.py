@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtWidgets import QMainWindow, QApplication, QLineEdit
+from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit
  
 class App(QMainWindow):
  
@@ -18,7 +18,7 @@ class App(QMainWindow):
         self.resize(self.width, self.height)
     
         # Create textbox
-        self.textbox = QLineEdit(self)
+        self.textbox = QPlainTextEdit(self)
         self.textbox.move(20, 20)
         self.textbox.resize(280,200)
         
