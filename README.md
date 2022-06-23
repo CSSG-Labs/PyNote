@@ -14,28 +14,28 @@
 
 ## About
 
-PyNote is a text editor application written in Python and Qt for Python/PySide6.  The basic application will be able to create and load text files, update the text within those files, and save the resulting changes.  Once the basic application is completed, future features will include UI updates, code modules (Python, Markdown, etc.), writing modules(novels, screenplays, etc.), and other feature requests.
+PyNote is a text editor application written in Python and PySimpleGUI.  The basic application will be able to create and load text files, update the text within those files, and save the resulting changes.  Once the basic application is completed, future features will include UI updates, code modules (Python, Markdown, etc.), writing modules(novels, screenplays, etc.), and other feature requests.
 
 The purpose of this project is to
 
 - Improve project collaboration & management skills
-- Learn how to build graphical user interfaces with Qt for Python/PySide6
+- Learn how to build graphical user interfaces with PySimpleGUI
 - Gain experience in Python
 
 ### Features (V1)
 
-- Create a basic text editor application in Python using Qt for Python/PySide6
+- Create a basic text editor application in Python using PySimpleGUI
 
 ### Built with
 
-- Qt for Python/PySide6
+- PySimpleGUI
 
 ## Getting Started
 
 ### Prequisites
 
 - Python3
-- Qt for Python/PySide6
+- PySimpleGUI
 
 ### How to run
 
