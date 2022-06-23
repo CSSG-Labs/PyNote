@@ -102,13 +102,14 @@
 
 ### Running app
 
-This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  If you installed Qt for Python/PySide6 using `pip install -r requirements.txt` while in your virtual environment make sure to activate your virtual environment before you run the program.
+This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  If you installed PySimpleGUI using `pip install -r requirements.txt` while in your virtual environment make sure to activate your virtual environment before you run the program.
   
 ### Resources
 
-- Currently, this project uses Qt for Python/PySide6 for its GUI.  This decision was made due to the ability of Qt for Python to create native looking desktop apps.  In the future, this project may apply QML or design modules to create a more modern design look.  There are myriad resources for using Qt for Python available online and many resources for PyQt5, PyQt6, etc. are still valid for Qt for Python/PySide6.
-  - [Official Qt for Python Documentation](https://doc.qt.io/qtforpython/)
-  - [List of PySide6 Tutorials](https://www.reddit.com/r/QtFramework/comments/ni27qi/complete_26_part_pyside_tutorial_updated_for/)
+- Currently, this project uses PySimpleGUI for its GUI.  This decision was made due to the ease of creating GUIs with PySimpleGUI.  In the future, this project may switch to a more advanced GUI framework to create a more modern design look.  There are myriad resources for using PySimpleGUI available online:
+  - [Official PySimpleGUI Documentation](https://pysimplegui.readthedocs.io/en/latest/)
+  - [PySimpleGUI Cookbook](https://pysimplegui.readthedocs.io/en/latest/cookbook/)
+  - [PySimpleGUI PyPi Page](https://pypi.org/project/PySimpleGUI/)
 
 ## Testing
 
@@ -136,4 +137,4 @@ This app can be run by typing `python3 main.py` or `python main.py` in your term
 
 ## Join us
 
-We are discussing this project on [discord](https://discord.com/). Please contact andromedamoon-stack or PatrickBruso by DM on Github or riboney @ ironbe#4809 for details on our server.
+We are discussing this project on [discord](https://discord.com/). Please contact andromedamoon-stack or PatrickBruso by DM on Github for details on our server.
