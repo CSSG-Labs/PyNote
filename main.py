@@ -17,5 +17,9 @@ def saveas():
     file1.write(t)
     file1.close()
 
+# Create save button
+button = tk.Button(root, text="Save", command=saveas)
+button.grid()
+
 # Start program
 root.mainloop()
