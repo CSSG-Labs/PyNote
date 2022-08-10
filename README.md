@@ -14,28 +14,28 @@
 
 ## About
 
-PyNote is a text editor application written in Python and PySimpleGUI.  The basic application will be able to create and load text files, update the text within those files, and save the resulting changes.  Once the basic application is completed, future features will include UI updates, code modules (Python, Markdown, etc.), writing modules(novels, screenplays, etc.), and other feature requests.
+PyNote is a text editor application written in Python and Tkinter.  The basic application will be able to create and load text files, update the text within those files, and save the resulting changes.  Once the basic application is completed, future features will include UI updates, code modules (Python, Markdown, etc.), writing modules (novels, screenplays, etc.), and other feature requests.
 
 The purpose of this project is to
 
 - Improve project collaboration & management skills
-- Learn how to build graphical user interfaces with PySimpleGUI
+- Learn how to build graphical user interfaces with Tkinter
 - Gain experience in Python
 
 ### Features (V1)
 
-- Create a basic text editor application in Python using PySimpleGUI
+- Create a basic text editor application in Python using Tkinter
 
 ### Built with
 
-- PySimpleGUI
+- Tkinter
 
 ## Getting Started
 
 ### Prequisites
 
 - Python3
-- PySimpleGUI
+- Tkinter
 
 ### How to run
 
