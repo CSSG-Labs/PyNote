@@ -102,14 +102,17 @@
 
 ### Running app
 
-This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  If you installed PySimpleGUI using `pip install -r requirements.txt` while in your virtual environment make sure to activate your virtual environment before you run the program.
+This app can be run by typing `python3 main.py` or `python main.py` in your terminal.  Since Tkinter is included with the basic Python installation, no additional libraries or frameworks are required to be downloaded via the Python package installer (pip).
   
 ### Resources
 
-- Currently, this project uses PySimpleGUI for its GUI.  This decision was made due to the ease of creating GUIs with PySimpleGUI.  In the future, this project may switch to a more advanced GUI framework to create a more modern design look.  There are myriad resources for using PySimpleGUI available online:
-  - [Official PySimpleGUI Documentation](https://pysimplegui.readthedocs.io/en/latest/)
-  - [PySimpleGUI Cookbook](https://pysimplegui.readthedocs.io/en/latest/cookbook/)
-  - [PySimpleGUI PyPi Page](https://pypi.org/project/PySimpleGUI/)
+- Currently, this project uses Tkinter for its GUI.  This decision was made due to the popularity of Tkinter, the large amount of available resources, and the fact that Tkinter comes installed with a standard Python installation.  In the future, this project may apply Tkinter themes or design modules to createa  more modern design look.  There are myriad resources for using Tkinter available online:
+  - [Official Tkinter Documentation](https://docs.python.org/3/library/tk.html)
+  - [TK Docs Guide](https://tkdocs.com/)
+  - [Real Python Guide to Tkinter](https://realpython.com/python-gui-tkinter/)
+  - [Tkinter 8.5 Reference](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html)
+  - [Tkinter Theme Example](https://github.com/rdbende/Sun-Valley-ttk-theme)
+  - [Tkinter Designer](https://github.com/ParthJadhav/Tkinter-Designer)
 
 ## Testing
 
