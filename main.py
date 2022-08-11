@@ -2,11 +2,12 @@ import tkinter as tk
 from tkinter import filedialog
 
 class Application(tk.Frame):
-    def __init__(self):
-        tk.Frame.__init__(self)
+    def __init__(self, master=None):
+        super().__init__(master)
+
+        self.master.title("PyNote")
 
         # Create text box for window
-        self.master.title("PyNote")
         self.text = tk.Text(self)
         self.text.pack(side="top")
 
@@ -24,5 +25,6 @@ class Application(tk.Frame):
         file1.close()
 
 # Start program
-app = Application()
+root = tk.Tk()
+app = Application(root)
 app.mainloop()
