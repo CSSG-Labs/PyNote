@@ -4,15 +4,22 @@ from tkinter import filedialog
 class Application(tk.Frame):
     def __init__(self):
         tk.Frame.__init__(self)
-
-        # Create text box for window
         self.master.title("PyNote")
+        
+        # Create menu bar
+        self.menuBar = tk.Menu(self.master)
+        fileMenu = tk.Menu(self.menuBar, tearoff=0)
+        self.master.config(menu=self.menuBar)
+        fileMenu.add_command(label="New", command=None)
+        fileMenu.add_command(label="Open", command=None)
+        fileMenu.add_command(label="Save", command=None)
+        fileMenu.add_command(label="Save as...", command=self.saveas)
+        self.menuBar.add_cascade(label="File", menu=fileMenu)
+        
+        # Create text box for window
         self.text = tk.Text(self)
         self.text.pack(side="top")
 
-        # Create save button
-        self.button = tk.Button(self, text="Save", command=self.saveas)
-        self.button.pack(side="bottom")
         self.pack()
 
     # Save function
