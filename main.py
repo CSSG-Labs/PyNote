@@ -26,10 +26,11 @@ class Application(tk.Frame):
     # Save function
     def saveas(self):
         t = self.text.get("1.0", "end-1c")
-        save_location = filedialog.asksaveasfilename()
-        file1 = open(save_location, "w+")
-        file1.write(t)
-        file1.close()
+        saveLocation = filedialog.asksaveasfilename()
+        if(saveLocation != ''):
+            file1 = open(saveLocation, "w+")
+            file1.write(t)
+            file1.close()
 
 # Start program
 root = tk.Tk()
