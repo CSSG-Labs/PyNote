@@ -47,4 +47,4 @@ See [Milestones](https://github.com/CSSG-Labs/PyNote/milestones)
 
 ## Join the discussions
 
-- Contact andromedamoon-stack or PatrickBruso via GitHub for access to the Discord server
+- If you are interested in contributing to this project, please join our [Discord](https://discord.gg/5afnaybw59)
