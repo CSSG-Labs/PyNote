@@ -16,7 +16,7 @@ class Application(tk.Frame):
         self.master.config(menu=self.menu_bar)
         file_menu.add_command(label="New", command=None)
         file_menu.add_command(label="Open", command=self.open)
-        file_menu.add_command(label="Save", command=None)
+        file_menu.add_command(label="Save", command=self.save)
         file_menu.add_command(label="Save as...", command=self.saveas)
         self.menu_bar.add_cascade(label="File", menu=file_menu)
 
@@ -26,7 +26,17 @@ class Application(tk.Frame):
 
         self.pack()
 
-    # Save function
+    #Save function
+    def save(self):
+        if(self.file_location is None):
+            self.saveas()
+        else:
+            t = self.text.get("1.0", "end")
+            file1 = open(self.file_location, "w+")
+            file1.write(t)
+            file1.close()
+
+    # Save as function
     def saveas(self):
         t = self.text.get("1.0", "end")
         save_location = filedialog.asksaveasfilename()
