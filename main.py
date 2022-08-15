@@ -28,7 +28,7 @@ class Application(tk.Frame):
 
     # Save function
     def saveas(self):
-        t = self.text.get("1.0", "end-1c") + "\n"
+        t = self.text.get("1.0", "end")
         save_location = filedialog.asksaveasfilename()
         if(save_location != ''):
             file1 = open(save_location, "w+")
