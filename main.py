@@ -14,7 +14,7 @@ class Application(tk.Frame):
         self.menu_bar = tk.Menu(self.master)
         file_menu = tk.Menu(self.menu_bar, tearoff=0)
         self.master.config(menu=self.menu_bar)
-        file_menu.add_command(label="New", command=None)
+        file_menu.add_command(label="New", command=self.new)
         file_menu.add_command(label="Open", command=self.open)
         file_menu.add_command(label="Save", command=self.save)
         file_menu.add_command(label="Save as...", command=self.saveas)
@@ -25,6 +25,10 @@ class Application(tk.Frame):
         self.text.pack(side="top")
 
         self.pack()
+
+    # New Function
+    def new(self):
+        self.text.delete("1.0", "end")
 
     #Save function
     def save(self):
