@@ -11,14 +11,14 @@ class Application(tk.Frame):
         self.file_location = None
 
         # Create menu bar
-        self.menuBar = tk.Menu(self.master)
-        fileMenu = tk.Menu(self.menuBar, tearoff=0)
-        self.master.config(menu=self.menuBar)
-        fileMenu.add_command(label="New", command=None)
-        fileMenu.add_command(label="Open", command=self.open)
-        fileMenu.add_command(label="Save", command=None)
-        fileMenu.add_command(label="Save as...", command=self.saveas)
-        self.menuBar.add_cascade(label="File", menu=fileMenu)
+        self.menu_bar = tk.Menu(self.master)
+        file_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.master.config(menu=self.menu_bar)
+        file_menu.add_command(label="New", command=None)
+        file_menu.add_command(label="Open", command=self.open)
+        file_menu.add_command(label="Save", command=None)
+        file_menu.add_command(label="Save as...", command=self.saveas)
+        self.menu_bar.add_cascade(label="File", menu=file_menu)
 
         # Create text box for window
         self.text = tk.Text(self)
@@ -29,9 +29,9 @@ class Application(tk.Frame):
     # Save function
     def saveas(self):
         t = self.text.get("1.0", "end-1c") + "\n"
-        saveLocation = filedialog.asksaveasfilename()
-        if(saveLocation != ''):
-            file1 = open(saveLocation, "w+")
+        save_location = filedialog.asksaveasfilename()
+        if(save_location != ''):
+            file1 = open(save_location, "w+")
             file1.write(t)
             file1.close()
 
