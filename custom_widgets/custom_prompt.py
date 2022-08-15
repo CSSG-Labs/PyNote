@@ -1,11 +1,47 @@
 import tkinter as tk
 
-"""
-creates custom prompt displaying some text and below it a row of option buttons
-"""
+
 class CustomPrompt(tk.Toplevel):
+    """
+    custom prompt displaying some text and below it a row of option buttons
+        
+    Attributes
+    ----------
+    parent : 
+        the prompt parent
+    title : str
+        the title of the prompt window
+    text : str
+        the text that will be showed in the center and invite the user to take an action
+    text_options : list
+        list of text for the buttons of the actions
+    function_options: list
+        list of functions for the buttons of the actions (must be the same length as text_options)
+    close_on_click: Boot
+        (Default True)
+        If True the prompt autocloses after an option was chosen,
+        if False otherwise
+
+    Methods
+    ----------
+    function_handler(i) :
+        NOT INTENDED TO BE USED OUTSIDE THE CLASS
+        method to add to the given function (taken from the function_options list via index i)
+            the functionality of closing if necessary the prompt window
+
+    Example of usage
+    ----------
+    #Copy to see how the class functions
+    root = tk.Tk()
+    label = tk.Label(root, text="Just some text")
+    #in the lambdas in the CustomPrompt object creation one can pass any function
+    button = tk.Button(root, text="Click me", command=lambda: CustomPrompt(root, "a or averyverylongstring", "Test", ["Print a", "Print averyverylongstring"], [lambda: print("a"), lambda: print("averyverylongstring")]))
+    button.pack()
+    label.pack()
+    root.mainloop()
+    """
     def __init__(self, parent, title, text, text_options, functions_options, close_on_click=True):
-        #initialization and argument check and also fixing its size
+        #initialization, argument check and fixing window size
         tk.Toplevel.__init__(self, parent)
         if(isinstance(text_options, list) and isinstance(functions_options, list)):
             if(len(text_options) != len(functions_options)):
@@ -32,20 +68,9 @@ class CustomPrompt(tk.Toplevel):
 
         self.mainloop()
     
-    #as the pop prompt may be closable this handler exists to do so
     def function_handler(self, i):
         if(self.close_on_click):
             self.functions_options[i]()
             self.destroy()
         else:
             self.functions_options[i]()
-
-# testing program
-if __name__ == "__main__":
-    root = tk.Tk()
-    label = tk.Label(root, text="Just some text")
-    #in the lambdas in the CustomPrompt object creation one can pass any function
-    button = tk.Button(root, text="Click me", command=lambda: CustomPrompt(root, "a or vabalabadabdab", "Test", ["Print a", "Print vabalabadabdab"], [lambda: print("a"), lambda: print("vabalabadabdab")]))
-    button.pack()
-    label.pack()
-    root.mainloop()
