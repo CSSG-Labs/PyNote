@@ -9,7 +9,7 @@ class Application(tk.Frame):
 
         # Save file location for opened files
         self.file_location = None
-        self.saved_t = ""
+        self.saved_textext = ""
 
         # Create menu bar
         self.menu_bar = tk.Menu(self.master)
@@ -30,49 +30,56 @@ class Application(tk.Frame):
     #Check if the text was changed (True if was - otherwise False)
     def text_is_changed(self):
         t = self.text.get("1.0", "end-1c")
-        if(t == self.saved_t):
+        if(t == self.saved_text):
             return False
         else:
             return True
 
     # New Function
     def new(self):
+        self.saved_text = self.text.get("1.0", "end-1c")
+        if self.text_is_changed():
+            pass # placeholder for prompt
+        self.file_location = None
         self.text.delete("1.0", "end")
+        self.saved_text = ""
 
     #Save function
     def save(self):
         if(self.file_location is None):
             self.saveas()
         else:
-            self.saved_t = self.text.get("1.0", "end-1c")
+            self.saved_text = self.text.get("1.0", "end-1c")
             file1 = open(self.file_location, "w+")
-            file1.write(self.saved_t + "\n")
+            file1.write(self.saved_text + "\n")
             file1.close()
 
     # Save as function
     def saveas(self):
-        self.saved_t = self.text.get("1.0", "end-1c")
+        self.saved_text = self.text.get("1.0", "end-1c")
         save_location = filedialog.asksaveasfilename()
         if(save_location != ''):
             self.file_location = save_location
             file1 = open(save_location, "w+")
-            file1.write(self.saved_t + "\n")
+            file1.write(self.saved_text + "\n")
             file1.close()
 
     # Open function
     def open(self):
-        # Placeholder for future CommandPrompt class call
+        if self.text_is_changed():
+            pass # placeholder for prompt
 
         # Find location of file to open
         open_location = filedialog.askopenfilename(title='Open Text File', filetypes=[('text files', '*.txt')])
         
-        if (open_location != ''): # Check file was selected and .txt file
+        if (open_location != ''): # Check file was selected
             opened_file = open(open_location, "r") # Open file
             opened_text = opened_file.read() # Read file and save text
             self.text.delete("1.0", "end-1c") # Delete old text
             self.text.insert("1.0", opened_text) # Insert text to text box at line 1, character 0
             opened_file.close() # Close file
             self.file_location = open_location # Set file_location variable to opened file location
+            self.saved_text = self.text.get("1.0", "end-1c") # Save new text for next check
 
 # Start program
 root = tk.Tk()
