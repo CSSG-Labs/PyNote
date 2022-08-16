@@ -13,6 +13,7 @@ class Application(tk.Frame):
 
         # Save file location for opened files
         self.file_location = None
+        self.save_location = ''
         self.saved_text = ""
 
         # Create menu bar
@@ -69,12 +70,12 @@ class Application(tk.Frame):
 
     # Save as function
     def saveas(self):
-        self.saved_text = self.text.get("1.0", "end-1c")
-        save_location = filedialog.asksaveasfilename()
-        if(save_location != ''):
-            self.file_location = save_location
-            file1 = open(save_location, "w+")
-            file1.write(self.saved_text + "\n")
+        self.save_location = filedialog.asksaveasfilename()
+        if(self.save_location != ''):
+            self.saved_t = self.text.get("1.0", "end-1c")
+            self.file_location = self.save_location
+            file1 = open(self.save_location, "w+")
+            file1.write(self.saved_t + "\n")
             file1.close()
 
     # Open function
@@ -107,7 +108,8 @@ class Application(tk.Frame):
             answer = tk.messagebox.askyesnocancel("PyNote", "Do you want to save the changes?")
             if answer:
                 self.save()
-                self.master.destroy()
+                if(self.save_location != ''):
+                    self.master.destroy()
             elif(answer is None):
                 pass
             else:
