@@ -9,7 +9,7 @@ class Application(tk.Frame):
 
         # Save file location for opened files
         self.file_location = None
-        self.saved_textext = ""
+        self.saved_text = ""
 
         # Create menu bar
         self.menu_bar = tk.Menu(self.master)
