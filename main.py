@@ -37,7 +37,6 @@ class Application(tk.Frame):
 
     # New Function
     def new(self):
-        self.saved_text = self.text.get("1.0", "end-1c")
         if self.text_is_changed():
             pass # placeholder for prompt
         self.file_location = None
