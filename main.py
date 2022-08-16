@@ -9,6 +9,7 @@ class Application(tk.Frame):
 
         # Save file location for opened files
         self.file_location = None
+        self.saved_t = ""
 
         # Create menu bar
         self.menu_bar = tk.Menu(self.master)
@@ -23,8 +24,16 @@ class Application(tk.Frame):
         # Create text box for window
         self.text = tk.Text(self)
         self.text.pack(side="top")
-
+        
         self.pack()
+
+    #Check if the text was changed (True if was - otherwise False)
+    def text_is_changed(self):
+        t = self.text.get("1.0", "end-1c")
+        if(t == self.saved_t):
+            return False
+        else:
+            return True
 
     # New Function
     def new(self):
@@ -35,18 +44,19 @@ class Application(tk.Frame):
         if(self.file_location is None):
             self.saveas()
         else:
-            t = self.text.get("1.0", "end")
+            self.saved_t = self.text.get("1.0", "end-1c")
             file1 = open(self.file_location, "w+")
-            file1.write(t)
+            file1.write(self.saved_t + "\n")
             file1.close()
 
     # Save as function
     def saveas(self):
-        t = self.text.get("1.0", "end")
+        self.saved_t = self.text.get("1.0", "end-1c")
         save_location = filedialog.asksaveasfilename()
         if(save_location != ''):
+            self.file_location = save_location
             file1 = open(save_location, "w+")
-            file1.write(t)
+            file1.write(self.saved_t + "\n")
             file1.close()
 
     # Open function
