@@ -76,13 +76,16 @@ class Application(tk.Frame):
             opened_file.close() # Close file
             self.file_location = open_location # Set file_location variable to opened file location
 
-    def save_and_close(self):
-        self.save()
-        self.master.destroy()
-
     def on_closing(self):
         if(self.text_is_changed()):
-            cp = CustomPrompt(self, "PyNote", "Do you want to save the changes?", ["Save", "Don't save", "Cancel"], [self.save_and_close, self.master.destroy, None])
+            answer = tk.messagebox.askyesnocancel("PyNote", "Do you want to save the changes?")
+            if answer:
+                self.save()
+                self.master.destroy()
+            elif(answer is None):
+                pass
+            else:
+                self.master.destroy()
         else:
             self.master.destroy()
 
