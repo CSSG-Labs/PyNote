@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
+
 from custom_widgets.custom_prompt import CustomPrompt
 
 class Application(tk.Frame):
@@ -40,10 +42,20 @@ class Application(tk.Frame):
     # New Function
     def new(self):
         if self.text_is_changed():
-            pass # placeholder for prompt
-        self.file_location = None
-        self.text.delete("1.0", "end")
-        self.saved_text = ""
+            answer = messagebox.askyesnocancel("Pynote", "Save changes?") # Prompt to save changes
+            if answer:
+                self.save()
+                # After saving, call new again
+                self.new()
+            elif answer is None:
+                pass
+            else:
+                self.saved_text = self.text.get("1.0", "end-1c") # Update saved_text and rerun new
+                self.new()
+        else:
+            self.file_location = None
+            self.text.delete("1.0", "end")
+            self.saved_text = ""
 
     #Save function
     def save(self):
@@ -68,19 +80,27 @@ class Application(tk.Frame):
     # Open function
     def open(self):
         if self.text_is_changed():
-            pass # placeholder for prompt
-
-        # Find location of file to open
-        open_location = filedialog.askopenfilename(title='Open Text File', filetypes=[('text files', '*.txt')])
-        
-        if (open_location != ''): # Check file was selected
-            opened_file = open(open_location, "r") # Open file
-            opened_text = opened_file.read() # Read file and save text
-            self.text.delete("1.0", "end-1c") # Delete old text
-            self.text.insert("1.0", opened_text) # Insert text to text box at line 1, character 0
-            opened_file.close() # Close file
-            self.file_location = open_location # Set file_location variable to opened file location
-            self.saved_text = self.text.get("1.0", "end-1c") # Save new text for next check
+            answer = messagebox.askyesnocancel("Pynote", "Save changes?") # Prompt to save changes
+            if answer:
+                self.save()
+                self.open()
+            elif answer is None:
+                pass
+            else:
+                self.saved_text = self.text.get("1.0", "end-1c") # Set current text to saved_text
+                self.open()
+        else:
+            # Find location of file to open
+            open_location = filedialog.askopenfilename(title='Open Text File', filetypes=[('text files', '*.txt')])
+            
+            if (open_location != ''): # Check file was selected
+                opened_file = open(open_location, "r") # Open file
+                opened_text = opened_file.read() # Read file and save text
+                self.text.delete("1.0", "end-1c") # Delete old text
+                self.text.insert("1.0", opened_text) # Insert text to text box at line 1, character 0
+                opened_file.close() # Close file
+                self.file_location = open_location # Set file_location variable to opened file location
+                self.saved_text = self.text.get("1.0", "end-1c") # Save new text for next check
 
     def on_closing(self):
         if(self.text_is_changed()):
