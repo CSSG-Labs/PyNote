@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import filedialog
+from custom_widgets.custom_prompt import CustomPrompt
 
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
 
         self.master.title("PyNote")
+        self.master.protocol("WM_DELETE_WINDOW", self.on_closing)
 
         # Save file location for opened files
         self.file_location = None
@@ -73,6 +75,19 @@ class Application(tk.Frame):
             self.text.insert("1.0", opened_text) # Insert text to text box at line 1, character 0
             opened_file.close() # Close file
             self.file_location = open_location # Set file_location variable to opened file location
+
+    def on_closing(self):
+        if(self.text_is_changed()):
+            answer = tk.messagebox.askyesnocancel("PyNote", "Do you want to save the changes?")
+            if answer:
+                self.save()
+                self.master.destroy()
+            elif(answer is None):
+                pass
+            else:
+                self.master.destroy()
+        else:
+            self.master.destroy()
 
 # Start program
 root = tk.Tk()

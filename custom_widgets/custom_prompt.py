@@ -70,7 +70,10 @@ class CustomPrompt(tk.Toplevel):
     
     def function_handler(self, i):
         if(self.close_on_click):
-            self.functions_options[i]()
             self.destroy()
+            if(self.functions_options[i] is not None):
+                self.functions_options[i]()
+            
         else:
-            self.functions_options[i]()
+            if(self.functions_options[i] is not None):
+                self.functions_options[i]()
