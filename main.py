@@ -15,6 +15,11 @@ class Application(tk.Frame):
         self.file_location = None
         self.save_location = ''
         self.saved_text = ""
+        
+
+        #getting users screen width and dividing it by some factor to get some screen size
+        self.screen_width = round(self.winfo_screenwidth()/20)
+        self.screen_height = round(self.winfo_screenheight()/25)
 
         # Create menu bar
         self.menu_bar = tk.Menu(self.master)
@@ -27,7 +32,7 @@ class Application(tk.Frame):
         self.menu_bar.add_cascade(label="File", menu=file_menu)
 
         # Create text box for window
-        self.text = tk.Text(self)
+        self.text = tk.Text(self, width= self.screen_width, height = self.screen_height)
         self.text.pack(side="top")
         
         self.pack()
@@ -67,8 +72,6 @@ class Application(tk.Frame):
             file1 = open(self.file_location, "w+")
             file1.write(self.saved_text + "\n")
             file1.close()
-
-    # Save as function
     def saveas(self):
         self.save_location = filedialog.asksaveasfilename()
         if(self.save_location != ''):
@@ -120,4 +123,5 @@ class Application(tk.Frame):
 # Start program
 root = tk.Tk()
 app = Application(root)
+
 app.mainloop()
