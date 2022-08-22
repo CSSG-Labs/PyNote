@@ -10,6 +10,7 @@ class Application(tk.Frame):
 
         self.master.title("PyNote")
         self.master.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.master.bind('<Control-s>',self.save)
 
         # Save file location for opened files
         self.file_location = None
@@ -64,7 +65,7 @@ class Application(tk.Frame):
             self.saved_text = ""
 
     #Save function
-    def save(self):
+    def save(self, *args):
         if(self.file_location is None):
             self.saveas()
         else:
