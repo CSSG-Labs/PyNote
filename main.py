@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-import signal
 
 from custom_widgets.custom_prompt import CustomPrompt
 
@@ -66,7 +65,7 @@ class Application(tk.Frame):
             self.saved_text = ""
 
     #Save function
-    def save(self, tmp = 0):
+    def save(self, *args):
         if(self.file_location is None):
             self.saveas()
         else:
