@@ -29,6 +29,8 @@ class Application(tk.Frame):
         file_menu.add_command(label="Open", command=self.open)
         file_menu.add_command(label="Save", command=self.save)
         file_menu.add_command(label="Save as...", command=self.saveas)
+        file_menu.add_separator()
+        file_menu.add_command(label="Quit", command=self.on_closing)
         self.menu_bar.add_cascade(label="File", menu=file_menu)
 
         # Create text box for window
