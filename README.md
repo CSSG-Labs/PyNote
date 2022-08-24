@@ -49,3 +49,4 @@ See [Milestones](https://github.com/CSSG-Labs/PyNote/milestones)
 ## Join the discussions
 
 - If you are interested in contributing to this project, please join our [Discord](https://discord.gg/5afnaybw59)
+
